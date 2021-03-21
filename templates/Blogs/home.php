@@ -1,24 +1,26 @@
-<?php
-    $this->Breadcrumbs->add(
-        'Inicio',
-        ['controller' => 'Blogs', 'action' => 'home'],
-        ['class'=> 'breadcrumb-item active']
-    );
-
-?>
-
-
-<div class="container">
-
-<div class="row">
-    <div class="col-4">
-        <h3 style="color: #fff;" class="bg-info text-capitalize p-1">Ultimas Noticias</h3>
-        <ul class="list-group list-group-flush">
-            <?php foreach ($articleList as $key => $articleTitle): ?>
-                <li class="list-group-item"><a href =<?= $this->Url->build(['controller'=>'Blogs','action'=>'view',$key])?>><?= $articleTitle ?></a></li>
-            <?php endforeach; ?>
-        </ul>
+<!doctype html>
+<html>
+    <head>
+    <link rel="stylesheet" href="webroot/css/inicio.css" />
+    </head>
+    <body>
+    <?= $this->element('nav'); ?>
+    <div class="div-logo">
+      <div class="container text-center"> <?=$this->Html->image('bikestor.png');?></div>
     </div>
+
+    <div class="container">
+
+        <div class="row">
+         <div class="col-4">
+            <h3 style="color: #fff;" class="bg-info text-capitalize p-1">Ultimas Noticias</h3>
+            <ul class="list-group list-group-flush">
+                 <?php foreach ($articleList as $key => $articleTitle): ?>
+                    <li class="list-group-item"><a href =<?= $this->Url->build(['controller'=>'Blogs','action'=>'view',$key])?>><?= $articleTitle ?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+                 
 
     <div class="col-8">
         <div class="row">
@@ -59,9 +61,11 @@
             </div>
     
         </div>
-    </div>
-</div>
+        </div>
+        </div>
 
-</div>
+        </div>
 
-</div>
+        </div>
+    </body>
+</hmtl>
