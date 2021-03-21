@@ -8,17 +8,17 @@
 
 <div class="users index content">
     <?php echo $userCount['count']; //exit; ?>
-    <?= $this->Html->link(__('New User'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Users') ?></h3>
+    <?= $this->Html->link(__('Nuevo Usuario'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <h3><?= __('Usuarios Registrados') ?></h3>
 
     <?= $this->Form->create(null, ['type' => 'get']) ?>
-    <?= $this->Form->control('key', ['label' => 'Search', 'value' => $this->request->getQuery('key'), 'autocomplete' => 'off']) ?>
-    <?= $this->Form->submit() ?>
+    <?= $this->Form->control('key', ['label' => 'Busqueda de Usuario', 'value' => $this->request->getQuery('key'), 'autocomplete' => 'off']) ?>
+    <?= $this->Form->submit('Buscar') ?>
     <?= $this->Form->end() ?>
 
     <div class="table-responsive">
         <?= $this->Form->create(null, ['url' => ['action' => 'deleteAll']]) ?>
-        <button>Delete All</button>
+        <button>Borrar Seleccionados</button>
         <table>
             <thead>
                 <tr>
@@ -29,8 +29,8 @@
                     <th><?= $this->Paginator->sort('image') ?></th>
                     <th>Mobile</th>
                     <th>Skills</th>
-                    <th><?= $this->Paginator->sort('Change Status') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th><?= $this->Paginator->sort('Cambiar status') ?></th>
+                    <th class="actions"><?= __('Opciones') ?></th>
                 </tr>
             </thead>
 
@@ -56,17 +56,17 @@
                         <td>
 
                             <?php if ($user->status == 1) : ?>
-                                <?= $this->Form->postLink(__('Inactive'), ['action' => 'userStatus', $user->id, $user->status], ['block' => true, 'confirm' => __('Are you sure you want to inactive # {0}?', $user->id)]) ?>
+                                <?= $this->Form->postLink(__('Desactivar'), ['action' => 'userStatus', $user->id, $user->status], ['block' => true, 'confirm' => __('Are you sure you want to inactive # {0}?', $user->id)]) ?>
                             <?php else : ?>
-                                <?= $this->Form->postLink(__('Active'), ['action' => 'userStatus', $user->id, $user->status], ['block' => true, 'confirm' => __('Are you sure you want to active # {0}?', $user->id)]) ?>
+                                <?= $this->Form->postLink(__('Activar'), ['action' => 'userStatus', $user->id, $user->status], ['block' => true, 'confirm' => __('Are you sure you want to active # {0}?', $user->id)]) ?>
                             <?php endif; ?>
 
                         </td>
 
                         <td class="actions">
-                            <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
-                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
-                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['block' => true, 'confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
+                            <?= $this->Html->link(__('Ver'), ['action' => 'view', $user->id]) ?>
+                            <?= $this->Html->link(__('Editar'), ['action' => 'edit', $user->id]) ?>
+                            <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $user->id], ['block' => true, 'confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -84,6 +84,6 @@
             <?= $this->Paginator->next(__('next') . ' >') ?>
             <?= $this->Paginator->last(__('last') . ' >>') ?>
         </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+        <p><?= $this->Paginator->counter(__('Página {{page}} de {{pages}}, mostrando {{current}} registro(s) de {{count}} totales')) ?></p>
     </div>
 </div>

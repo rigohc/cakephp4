@@ -62,16 +62,23 @@ class UsersTable extends Table
             ->scalar('username')
             ->maxLength('username', 20)
             ->requirePresence('username', 'create')
-            ->notEmptyString('username');
+            ->notEmptyString('username','Llene este campo');
 
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
-            ->notEmptyString('email');
+            ->notEmptyString('email','Llene este campo')
+            ->add('email', [
+                'email' => [
+                    'rule' => ['email'],
+                    'message' => 'Ingrese un correo electronico valido.  Ej.. usuarioemail@gmail.com',
+                ]
+            ]);
 
         $validator
             ->scalar('password')
-            ->maxLength('password', 100)
+            ->maxLength('password', 20,'Este campo debe tener una longitud maxima de 20 caracteres')
+            ->minLength('password',8,'Este campo debe tener una longitud minima de 8 caracteres')
             ->requirePresence('password', 'create')
             ->notEmptyString('password');
 
@@ -100,8 +107,14 @@ class UsersTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->isUnique(['username']));
-        $rules->add($rules->isUnique(['email']));
+        $rules->add($rules->isUnique(['username']),[
+            'message'=>'Este nombre de usuario ya se encuentra en uso'
+        ]
+        );
+        $rules->add($rules->isUnique(['email']),[
+            'message'=>'Este correo electrónico ya se encuentra en uso'
+        ]
+        );
 
         return $rules;
     }

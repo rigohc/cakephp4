@@ -7,20 +7,20 @@
 <div class="row">
     <aside class="column">
         <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
+            <h4 class="heading"><?= __('Opciones') ?></h4>
             <?= $this->Form->postLink(
-                __('Delete'),
+                __('Eliminar Usuarios'),
                 ['action' => 'delete', $user->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'side-nav-item']
+                ['confirm' => __('Esta seguro de eliminar a # {0}?', $user->username), 'class' => 'side-nav-item']
             ) ?>
-            <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('Lista de Usuarios'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
         <div class="users form content">
             <?= $this->Form->create($user,['type' => 'file']) ?>
             <fieldset>
-                <legend><?= __('Edit User') ?></legend>
+                <legend><?= __('Editar Usuario') ?></legend>
                 <?php
                     echo $this->Form->control('username');
                     echo $this->Form->control('email');
@@ -28,11 +28,11 @@
                     // debug($user->image);
                     echo $this->Form->control('profile.mobile');
 
-                    echo $this->Form->control('skills.0.name');
-                    echo $this->Form->control('skills.1.name');
+                    //echo $this->Form->control('skills.0.name');
+                    //echo $this->Form->control('skills.1.name');
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Form->button(__('Guardar Cambios')) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

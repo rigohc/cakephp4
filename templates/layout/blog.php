@@ -1,10 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Css local -->
+  <link rel="stylesheet" href="webroot/css/inicio.css" />
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -18,20 +21,18 @@
       color:brown;
     }
   </style>
-  <title>Hello, world!</title>
+  <title>BikeStore</title>
 </head>
 
 <body>
-
+  
   <?= $this->element('nav'); ?>
-
-
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">A simple Blog Layout</h1>
-      <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    <div class="div-logo">
+      <div class="container text-center">
+        <?=$this->Html->image('bikestor.png');?>
+      </div>
     </div>
-  </div>
+
   <?php
     $this->Breadcrumbs->setTemplates([
       'wrapper' => '<nav aria-label="breadcrumb"><ol class="breadcrumb" {{attrs}}>{{content}}</ol></nav>',

@@ -1,6 +1,6 @@
 <?php
     $this->Breadcrumbs->add(
-        'Home',
+        'Inicio',
         ['controller' => 'Blogs', 'action' => 'home'],
         ['class'=> 'breadcrumb-item active']
     );
@@ -12,7 +12,7 @@
 
 <div class="row">
     <div class="col-4">
-        <h3 style="color: #fff;" class="bg-info text-capitalize p-1">Recent Post</h3>
+        <h3 style="color: #fff;" class="bg-info text-capitalize p-1">Ultimas Noticias</h3>
         <ul class="list-group list-group-flush">
             <?php foreach ($articleList as $key => $articleTitle): ?>
                 <li class="list-group-item"><a href =<?= $this->Url->build(['controller'=>'Blogs','action'=>'view',$key])?>><?= $articleTitle ?></a></li>

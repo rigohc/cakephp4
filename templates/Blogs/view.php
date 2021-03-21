@@ -1,7 +1,7 @@
 <?php
     $this->Breadcrumbs->add([
         [
-            'title' => 'Home', 
+            'title' => 'Inicio', 
             'url' => ['controller' => 'Blogs', 'action' => 'home'],
             'options' => ['class'=> 'breadcrumb-item']
         ],
