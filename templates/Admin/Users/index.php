@@ -27,8 +27,7 @@
                     <th><?= $this->Paginator->sort('username') ?></th>
                     <th><?= $this->Paginator->sort('email') ?></th>
                     <th><?= $this->Paginator->sort('image') ?></th>
-                    <th>Mobile</th>
-                    <th>Skills</th>
+                    <th><?= $this->Paginator->sort('phone') ?></th>
                     <th><?= $this->Paginator->sort('Cambiar status') ?></th>
                     <th class="actions"><?= __('Opciones') ?></th>
                 </tr>
@@ -43,22 +42,22 @@
                         <td><?= h($user->username) ?></td>
                         <td><?= h($user->email) ?></td>
                         <td><?= @$this->Html->image($user->image, ['style' => 'max-width:50px;height:50px;border-radius:50%;']) ?></td>
-                        <td><?= @h($user->profile->mobile) ?></td>
+                        <td><?= h($user->phone) ?></td>
                         
-                        <td>
+                        <!-- <td>
                            <?php 
                                 foreach ($user->skills as $key => $skill) {
                                     echo $skill->name." ";
                                 }
                            ?>
-                        </td>
+                        </td> -->
 
                         <td>
 
                             <?php if ($user->status == 1) : ?>
-                                <?= $this->Form->postLink(__('Desactivar'), ['action' => 'userStatus', $user->id, $user->status], ['block' => true, 'confirm' => __('Are you sure you want to inactive # {0}?', $user->id)]) ?>
+                                <?= $this->Form->postLink(__('Desactivar'), ['action' => 'userStatus', $user->id, $user->status], ['block' => true, 'confirm' => __('Está seguro de querer desactivar # {0}?', $user->username)]) ?>
                             <?php else : ?>
-                                <?= $this->Form->postLink(__('Activar'), ['action' => 'userStatus', $user->id, $user->status], ['block' => true, 'confirm' => __('Are you sure you want to active # {0}?', $user->id)]) ?>
+                                <?= $this->Form->postLink(__('Activar'), ['action' => 'userStatus', $user->id, $user->status], ['block' => true, 'confirm' => __('Está seguro de querer activar # {0}?', $user->username)]) ?>
                             <?php endif; ?>
 
                         </td>
@@ -66,7 +65,7 @@
                         <td class="actions">
                             <?= $this->Html->link(__('Ver'), ['action' => 'view', $user->id]) ?>
                             <?= $this->Html->link(__('Editar'), ['action' => 'edit', $user->id]) ?>
-                            <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $user->id], ['block' => true, 'confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
+                            <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $user->id], ['block' => true, 'confirm' => __('Esta seguro de querer eliminar # {0}?', $user->username)]) ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>

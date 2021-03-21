@@ -91,7 +91,7 @@ class UsersTable extends Table
             ],
             'fileSize' => [
                 'rule' => [ 'fileSize', '<=', '1MB' ],
-                'message' => 'Image file size must be less than 1MB.',
+                'message' => 'El tamaño de la imagen debe ser menor a 1MB.',
             ],
         ] );
         

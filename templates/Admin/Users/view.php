@@ -9,7 +9,7 @@
         <div class="side-nav">
             <h4 class="heading"><?= __('Opciones') ?></h4>
             <?= $this->Html->link(__('Editar Usuario'), ['action' => 'edit', $user->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Eliminar Usuario'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'side-nav-item']) ?>
+            <?= $this->Form->postLink(__('Eliminar Usuario'), ['action' => 'delete', $user->id], ['confirm' => __('Está seguro de querer eliminar # {0}?', $user->username), 'class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('Lista de Usuarios'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('Nuevo Usuario'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
         </div>
@@ -19,28 +19,24 @@
             <h3><?= h($user->id) ?></h3>
             <table>
                 <tr>
-                    <th><?= __('Username') ?></th>
-                    <td><?= h($user->username) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Email') ?></th>
-                    <td><?= h($user->email) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Password') ?></th>
-                    <td><?= h($user->password) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= $this->Number->format($user->id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Created') ?></th>
-                    <td><?= h($user->created) ?></td>
+                    <th><?= __('Nombre de usuario') ?></th>
+                    <td><?= h($user->username) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Modified') ?></th>
-                    <td><?= h($user->modified) ?></td>
+                    <th><?= __('Correo Electrónico') ?></th>
+                    <td><?= h($user->email) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Contraseña') ?></th>
+                    <td><?= h($user->password) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Numero Telefónico') ?></th>
+                    <td><?= h($user->password) ?></td>
                 </tr>
             </table>
         </div>

@@ -7,20 +7,20 @@
 <div class="row">
     <aside class="column">
         <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <h4 class="heading"><?= __('Opciones') ?></h4>
+            <?= $this->Html->link(__('Lista de Usuarios'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
         <div class="users form content">
             <?= $this->Form->create($user,['type'=>'file',['novalidate']]) ?>
             <fieldset>
-                <legend><?= __('Add User') ?></legend>
+                <legend><?= __('Registro de Usuarios') ?></legend>
                 <?php
                     echo $this->Form->control('username');
                     echo $this->Form->control('email');
                     echo $this->Form->control('password');
-                    echo $this->Form->control('profile.mobile');
+                    echo $this->Form->control('phone');
                     echo $this->Form->control('image_file',['type'=>'file']);
 
                     // echo $this->Form->control('skills.0.name');
@@ -30,7 +30,7 @@
 
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Form->button(__('Registrar')) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>
