@@ -36,7 +36,7 @@
                 </tr>
                 <tr>
                     <th><?= __('Numero Telefónico') ?></th>
-                    <td><?= h($user->password) ?></td>
+                    <td><?= h($user->phone) ?></td>
                 </tr>
             </table>
         </div>
