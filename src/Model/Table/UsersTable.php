@@ -65,13 +65,21 @@ class UsersTable extends Table
             ->notEmptyString('username','Llene este campo');
 
         $validator
+            ->scalar('phone')
+            ->maxLength('phone', 10,'Ingrese un numero telefónico valido.')
+            ->minLength('phone', 10,'Ingrese un numero telefónico valido.')
+            ->requirePresence('phone', 'create')
+            ->naturalNumber('phone','Este campo solo admite numeros')
+            ->notEmptyString('phone','Llene este campo');
+
+        $validator
             ->email('email')
             ->requirePresence('email', 'create')
             ->notEmptyString('email','Llene este campo')
             ->add('email', [
                 'email' => [
                     'rule' => ['email'],
-                    'message' => 'Ingrese un correo electronico valido.  Ej.. usuarioemail@gmail.com',
+                    'message' => 'Ingrese un correo electronico valido.  Ej: usuarioemail@gmail.com',
                 ]
             ]);
 

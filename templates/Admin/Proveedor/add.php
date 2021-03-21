@@ -7,15 +7,15 @@
 <div class="row">
     <aside class="column">
         <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Proveedor'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <h4 class="heading"><?= __('Opciones') ?></h4>
+            <?= $this->Html->link(__('Lista de Proveedores'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
         <div class="proveedor form content">
-            <?= $this->Form->create($proveedor) ?>
+            <?= $this->Form->create($proveedor,['novalidate']) ?>
             <fieldset>
-                <legend><?= __('Add Proveedor') ?></legend>
+                <legend><?= __('Registro de Proveedores') ?></legend>
                 <?php
                     echo $this->Form->control('razon_social');
                     echo $this->Form->control('email');
@@ -25,7 +25,7 @@
                     echo $this->Form->control('sitio_web');
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Form->button(__('Guardar')) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

@@ -5,8 +5,8 @@
  */
 ?>
 <div class="proveedor index content">
-    <?= $this->Html->link(__('New Proveedor'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Proveedor') ?></h3>
+    <?= $this->Html->link(__('Nuevo Proveedor'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <h3><?= __('Proveedores Registrados') ?></h3>
     <div class="table-responsive">
         <table>
             <thead>
@@ -18,7 +18,7 @@
                     <th><?= $this->Paginator->sort('codigo_postal') ?></th>
                     <th><?= $this->Paginator->sort('direccion') ?></th>
                     <th><?= $this->Paginator->sort('sitio_web') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th class="actions"><?= __('Opciones') ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -32,9 +32,9 @@
                     <td><?= h($proveedor->direccion) ?></td>
                     <td><?= h($proveedor->sitio_web) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $proveedor->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $proveedor->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $proveedor->id], ['confirm' => __('Are you sure you want to delete # {0}?', $proveedor->id)]) ?>
+                        <?= $this->Html->link(__('Ver'), ['action' => 'view', $proveedor->id]) ?>
+                        <?= $this->Html->link(__('Editar'), ['action' => 'edit', $proveedor->id]) ?>
+                        <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $proveedor->id], ['confirm' => __('Está seguro de querer eliminar # {0}?', $proveedor->razon_social)]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -44,11 +44,11 @@
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->prev('< ' . __('Anterior')) ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
+            <?= $this->Paginator->next(__('Siguiente') . ' >') ?>
             <?= $this->Paginator->last(__('last') . ' >>') ?>
         </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+        <p><?= $this->Paginator->counter(__('Página {{page}} de {{pages}}, mostrando {{current}} registro(s) de {{count}} totales')) ?></p>
     </div>
 </div>

@@ -51,11 +51,11 @@ class ProveedorController extends AppController
         if ($this->request->is('post')) {
             $proveedor = $this->Proveedor->patchEntity($proveedor, $this->request->getData());
             if ($this->Proveedor->save($proveedor)) {
-                $this->Flash->success(__('The proveedor has been saved.'));
+                $this->Flash->success(__('El proveedor ha sido guardado.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The proveedor could not be saved. Please, try again.'));
+            $this->Flash->error(__('El proveedor no pudo ser guardado. Por favor, intente nuevamente.'));
         }
         $this->set(compact('proveedor'));
     }
@@ -75,11 +75,11 @@ class ProveedorController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $proveedor = $this->Proveedor->patchEntity($proveedor, $this->request->getData());
             if ($this->Proveedor->save($proveedor)) {
-                $this->Flash->success(__('The proveedor has been saved.'));
+                $this->Flash->success(__('Los datos del proveedor han sido actualizados'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The proveedor could not be saved. Please, try again.'));
+            $this->Flash->error(__('Los datos del proveedor no pudieron ser actualizados. Por favor, intente nuevamente.'));
         }
         $this->set(compact('proveedor'));
     }
@@ -96,9 +96,9 @@ class ProveedorController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $proveedor = $this->Proveedor->get($id);
         if ($this->Proveedor->delete($proveedor)) {
-            $this->Flash->success(__('The proveedor has been deleted.'));
+            $this->Flash->success(__('El proveedor ha sido eliminado.'));
         } else {
-            $this->Flash->error(__('The proveedor could not be deleted. Please, try again.'));
+            $this->Flash->error(__('El proveedor no pudo ser eliminado. Por favor, intente nuevamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

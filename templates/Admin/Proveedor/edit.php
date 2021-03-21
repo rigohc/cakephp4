@@ -7,20 +7,20 @@
 <div class="row">
     <aside class="column">
         <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
+            <h4 class="heading"><?= __('Opciones') ?></h4>
             <?= $this->Form->postLink(
-                __('Delete'),
+                __('Eliminar Proveedor'),
                 ['action' => 'delete', $proveedor->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $proveedor->id), 'class' => 'side-nav-item']
+                ['confirm' => __('Está seguro de querer eliminar # {0}?', $proveedor->razon_social), 'class' => 'side-nav-item']
             ) ?>
-            <?= $this->Html->link(__('List Proveedor'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('Lista de Proveedores'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
         <div class="proveedor form content">
             <?= $this->Form->create($proveedor) ?>
             <fieldset>
-                <legend><?= __('Edit Proveedor') ?></legend>
+                <legend><?= __('Editar Proveedor') ?></legend>
                 <?php
                     echo $this->Form->control('razon_social');
                     echo $this->Form->control('email');
@@ -30,7 +30,7 @@
                     echo $this->Form->control('sitio_web');
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Form->button(__('Guardar Cambios')) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

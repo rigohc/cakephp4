@@ -63,31 +63,42 @@ class ProveedorTable extends Table
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
-            ->notEmptyString('email');
+            ->notEmptyString('email')
+            ->add('email', [
+                'email' => [
+                    'rule' => ['email'],
+                    'message' => 'Ingrese un correo electronico valido.  Ej: proveedoremail@gmail.com',
+                ]
+            ]);
 
         $validator
             ->scalar('telefono')
             ->maxLength('telefono', 20)
             ->requirePresence('telefono', 'create')
-            ->notEmptyString('telefono');
+            ->maxLength('telefono', 10,'Ingrese un numero telefónico valido.')
+            ->minLength('telefono', 10,'Ingrese un numero telefónico valido.')
+            ->naturalNumber('telefono','Este campo solo admite numeros')
+            ->notEmptyString('telefono','Llene este campo');
 
         $validator
             ->scalar('codigo_postal')
             ->maxLength('codigo_postal', 10)
+            ->naturalNumber('phone','Este campo solo admite numeros')
             ->requirePresence('codigo_postal', 'create')
-            ->notEmptyString('codigo_postal');
+            ->naturalNumber('codigo','Este campo solo admite numeros')
+            ->notEmptyString('codigo_postal','Llene este campo');
 
         $validator
             ->scalar('direccion')
             ->maxLength('direccion', 250)
             ->requirePresence('direccion', 'create')
-            ->notEmptyString('direccion');
+            ->notEmptyString('direccion','Llene este campo');
 
         $validator
             ->scalar('sitio_web')
             ->maxLength('sitio_web', 150)
             ->requirePresence('sitio_web', 'create')
-            ->notEmptyString('sitio_web');
+            ->notEmptyString('sitio_web','Llene este campo');
 
         return $validator;
     }
