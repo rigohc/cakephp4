@@ -40,10 +40,7 @@ class BlogsController extends AppController{
         //about 
     }
 
-    public function contact()
-    {
-        exit("Hello");
-    }
+   
 
     public function view($id = null)
     {

@@ -1,0 +1,63 @@
+.contenedor{
+    background-color:#ffffff;
+    width: 100%;
+}
+
+#head{
+    background: rgb(194, 1, 1);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: sans-serif;
+    color: white;
+}
+/* #menu{
+    height:10%;
+    background-color:#C8CACC;
+    float:left
+} */
+
+
+#contenido{
+   background-image: url(../img/carousel.jpg);
+   width: auto;
+   height: 500px;
+   
+}
+
+#foot{
+    background-color:rgb(37, 36, 36);
+    text-align: center;
+    font-family: sans-serif;
+    color: white;
+}
+
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+  height: fit-content;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color:lavenderblush;
+  height: auto;
+}
+

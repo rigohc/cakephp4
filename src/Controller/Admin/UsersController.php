@@ -27,7 +27,7 @@ class UsersController extends AppController
                     return $this->redirect(['controller' => 'Users', 'action' => 'logout']);
                 }
 
-                return $this->redirect(['controller'=>'Users','action'=>'index']);
+                return $this->redirect(['controller'=>'Users','action'=>'inicio']);
             }else {
                 $this->Flash->error("Usuario o contrasñea incorrecto(s) !");
             }
@@ -36,7 +36,7 @@ class UsersController extends AppController
 
     public function logout(){
         $this->Auth->logout();
-        return $this->redirect(['controller'=>'../Blogs','action'=>'home']);
+        return $this->redirect(['controller'=>'../../bikestore','action'=>'']);
     }
     /**
      * Index method
@@ -218,6 +218,10 @@ class UsersController extends AppController
             $this->Flash->success(__('Estatus de usuario cambiado.'));
         }
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function inicio(){
+
     }
 
 }
