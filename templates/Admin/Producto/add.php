@@ -31,6 +31,7 @@
                     echo $this->Form->control('image_file',['type'=>'file']);
                     echo $this->Form->control('proveedor');
                 ?>
+            
             </fieldset>
             <?= $this->Form->button(__('Guardar')) ?>
             <?= $this->Form->end() ?>

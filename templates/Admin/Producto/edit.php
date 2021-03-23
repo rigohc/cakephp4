@@ -19,7 +19,7 @@
     </aside>
     <div class="column-responsive column-80">
         <div class="producto form content">
-            <?= $this->Form->create($producto) ?>
+            <?= $this->Form->create($producto,['type' => 'file']) ?>
             <fieldset>
                 <legend><?= __('Editar Producto') ?></legend>
                 <?php
@@ -32,7 +32,7 @@
                     echo $this->Form->control('tipo_suspencion');
                     echo $this->Form->control('tipo_frenos');
                     echo $this->Form->control('transmision');
-                    echo $this->Form->control('image');
+                    echo $this->Form->control('change_image',['type'=>'file']);
                     echo $this->Form->control('proveedor');
                 ?>
             </fieldset>
