@@ -8,6 +8,7 @@
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Opciones') ?></h4>
+            <?= $this->Html->link(__('Inicio'), ['controller' => 'users', 'action' => 'inicio'], ['class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('Editar Articulo'), ['action' => 'edit', $article->id], ['class' => 'side-nav-item']) ?>
             <?= $this->Form->postLink(__('Eliminar Articulo'), ['action' => 'delete', $article->id], ['confirm' => __('Está seguro de querer eliminar este articulo # {0}?', $article->id), 'class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('Lista de Articulos'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>

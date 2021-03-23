@@ -10,6 +10,7 @@
     <?php echo $userCount['count']; //exit; ?>
     <?= $this->Html->link(__('Nuevo Usuario'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <h3><?= __('Usuarios Registrados') ?></h3>
+    <?= $this->Html->link(__('Ir a inicio'), ['controller' => 'users', 'action' => 'inicio'], ['class' => 'side-nav-item']) ?>
 
     <?= $this->Form->create(null, ['type' => 'get']) ?>
     <?= $this->Form->control('key', ['label' => 'Busqueda de Usuario', 'value' => $this->request->getQuery('key'), 'autocomplete' => 'off']) ?>

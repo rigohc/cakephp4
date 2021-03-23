@@ -108,11 +108,18 @@ class ProductoTable extends Table
             ->requirePresence('transmision', 'create')
             ->notEmptyString('transmision');
 
-        $validator
-            ->scalar('image')
-            ->maxLength('image', 255)
-            ->requirePresence('image', 'create')
-            ->notEmptyFile('image');
+            $validator
+            ->allowEmptyFile('image')
+            ->add( 'image', [
+            'mimeType' => [
+                'rule' => [ 'mimeType', [ 'image/jpg', 'image/png', 'image/jpeg' ] ],
+                'message' => 'Please upload only jpg and png.',
+            ],
+            'fileSize' => [
+                'rule' => [ 'fileSize', '<=', '1MB' ],
+                'message' => 'El tamaño de la imagen debe ser menor a 1MB.',
+            ],
+        ] );
 
         $validator
             ->integer('proveedor')

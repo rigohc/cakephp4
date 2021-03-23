@@ -5,8 +5,9 @@
  */
 ?>
 <div class="producto index content">
-    <?= $this->Html->link(__('New Producto'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <?= $this->Html->link(__('Nuevo Producto'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <h3><?= __('Producto') ?></h3>
+    <?= $this->Html->link(__('Ir a inicio'), ['controller' => 'users', 'action' => 'inicio'], ['class' => 'side-nav-item']) ?>
     <div class="table-responsive">
         <table>
             <thead>
@@ -23,7 +24,7 @@
                     <th><?= $this->Paginator->sort('transmision') ?></th>
                     <th><?= $this->Paginator->sort('image') ?></th>
                     <th><?= $this->Paginator->sort('proveedor') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th class="actions"><?= __('Opciones') ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -39,12 +40,12 @@
                     <td><?= h($producto->tipo_suspencion) ?></td>
                     <td><?= h($producto->tipo_frenos) ?></td>
                     <td><?= h($producto->transmision) ?></td>
-                    <td><?= h($producto->image) ?></td>
+                    <td><?= @$this->Html->image($producto->image, ['style' => 'max-width:50px;height:50px;border-radius:50%;']) ?></td>
                     <td><?= $this->Number->format($producto->proveedor) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $producto->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $producto->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $producto->id], ['confirm' => __('Are you sure you want to delete # {0}?', $producto->id)]) ?>
+                        <?= $this->Html->link(__('Ver'), ['action' => 'view', $producto->id]) ?>
+                        <?= $this->Html->link(__('Editar'), ['action' => 'edit', $producto->id]) ?>
+                        <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $producto->id], ['confirm' => __('¿Está seguro de querer eliminar este producto: {0}?', $producto->nombre)]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -54,11 +55,11 @@
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->prev('< ' . __('Anterior')) ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
+            <?= $this->Paginator->next(__('Siguiente') . ' >') ?>
             <?= $this->Paginator->last(__('last') . ' >>') ?>
         </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+        <p><?= $this->Paginator->counter(__('Página {{page}} de {{pages}}, mostrando {{current}} registro(s) de {{count}} totales')) ?></p>
     </div>
 </div>

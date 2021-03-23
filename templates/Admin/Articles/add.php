@@ -9,6 +9,7 @@
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Opciones') ?></h4>
+            <?= $this->Html->link(__('Inicio'), ['controller' => 'users', 'action' => 'inicio'], ['class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('Lista de Articulos'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>

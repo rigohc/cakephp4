@@ -6,7 +6,8 @@
 ?>
 <div class="articles index content">
     <?= $this->Html->link(__('Redactar articulo'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Articulos') ?></h3>
+    <h3><?= __('Articulos') ?></h3> 
+    <?= $this->Html->link(__('Ir a inicio'), ['controller' => 'users', 'action' => 'inicio'], ['class' => 'side-nav-item']) ?>
     <div class="table-responsive">
         <table>
             <thead>

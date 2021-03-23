@@ -8,6 +8,9 @@
     <div class="div-logo">
       <div class="container text-center"> <?=$this->Html->image('bikestor.png');?></div>
     </div>
+    <div class="container text-center"> <?=$this->Html->image('nav.png');?> 
+        
+    </div>
 
     <div class="container">
 

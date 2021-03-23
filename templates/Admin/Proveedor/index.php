@@ -7,6 +7,7 @@
 <div class="proveedor index content">
     <?= $this->Html->link(__('Nuevo Proveedor'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <h3><?= __('Proveedores Registrados') ?></h3>
+    <?= $this->Html->link(__('Ir a inicio'), ['controller' => 'users', 'action' => 'inicio'], ['class' => 'side-nav-item']) ?>
     <div class="table-responsive">
         <table>
             <thead>

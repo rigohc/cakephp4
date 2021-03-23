@@ -2,9 +2,9 @@
 declare(strict_types=1);
 
 namespace App\Controller\Admin;
-
-use App\Controller\AppController;
-
+use \SplFileObject;
+use App\Controller\Admin\AppController;
+use Cake\Datasource\ConnectionManager;
 /**
  * Producto Controller
  *
@@ -50,12 +50,29 @@ class ProductoController extends AppController
         $producto = $this->Producto->newEmptyEntity();
         if ($this->request->is('post')) {
             $producto = $this->Producto->patchEntity($producto, $this->request->getData());
+            
+            if(!$producto->getErrors){
+                $image = $this->request->getData('image_file');
+
+                $name  = $image->getClientFilename();
+
+                if( !is_dir(WWW_ROOT.'img'.DS.'productos') )
+                mkdir(WWW_ROOT.'img'.DS.'productos',0775);
+                
+                $targetPath = WWW_ROOT.'img'.DS.'productos'.DS.$name;
+
+                if($name)
+                $image->moveTo($targetPath);
+                
+                $producto->image = 'productos/'.$name;
+            }
+        
             if ($this->Producto->save($producto)) {
-                $this->Flash->success(__('The producto has been saved.'));
+                $this->Flash->success(__('El producto ha sido guardado.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The producto could not be saved. Please, try again.'));
+            $this->Flash->error(__('El producto no pudo ser guardado. Por favor, intente nuevamente.'));
         }
         $this->set(compact('producto'));
     }
@@ -69,17 +86,42 @@ class ProductoController extends AppController
      */
     public function edit($id = null)
     {
-        $producto = $this->Producto->get($id, [
-            'contain' => [],
-        ]);
+        $producto = $this->Producto->get($id,['contain'=>[],]);
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $producto = $this->Producto->patchEntity($producto, $this->request->getData());
+
+            if (!$producto->getErrors) {
+                $image = $this->request->getData('change_image');
+  
+                $name  = $image->getClientFilename();
+                
+                if ($name){
+                    if (!is_dir(WWW_ROOT . 'img' . DS . 'productos'))
+                        mkdir(WWW_ROOT . 'img' . DS . 'productos', 0775);
+
+                    $targetPath = WWW_ROOT . 'img' . DS . 'productos' . DS . $name;
+
+
+                    $image->moveTo($targetPath);
+
+                    $imgpath = WWW_ROOT . 'img' . DS . $producto->image;
+                    if (file_exists($imgpath)) {
+                        unlink($imgpath);
+                    }
+                    
+                    $producto->image = 'productos/' . $name;
+                }
+
+                
+            }
+
             if ($this->Producto->save($producto)) {
-                $this->Flash->success(__('The producto has been saved.'));
+                $this->Flash->success(__('Los datos del producto han sido actualizados'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The producto could not be saved. Please, try again.'));
+            $this->Flash->error(__('Los datos del producto no pudieron ser actualizados. Por favor, intente nuevamente.'));
         }
         $this->set(compact('producto'));
     }
@@ -95,10 +137,16 @@ class ProductoController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $producto = $this->Producto->get($id);
+
+        $imgpath = WWW_ROOT.'img'.DS.$producto->image;
+        
         if ($this->Producto->delete($producto)) {
-            $this->Flash->success(__('The producto has been deleted.'));
+            if( file_exists($imgpath) ){
+                unlink($imgpath);
+            }
+            $this->Flash->success(__('El producto ha sido eliminado.'));
         } else {
-            $this->Flash->error(__('The producto could not be deleted. Please, try again.'));
+            $this->Flash->error(__('El producto no pudo ser eliminado. Por favor, intente nuevamente.'));
         }
 
         return $this->redirect(['action' => 'index']);
