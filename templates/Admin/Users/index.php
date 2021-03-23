@@ -45,13 +45,6 @@
                         <td><?= @$this->Html->image($user->image, ['style' => 'max-width:50px;height:50px;border-radius:50%;']) ?></td>
                         <td><?= h($user->phone) ?></td>
                         
-                        <!-- <td>
-                           <?php 
-                                foreach ($user->skills as $key => $skill) {
-                                    echo $skill->name." ";
-                                }
-                           ?>
-                        </td> -->
 
                         <td>
 

@@ -59,8 +59,8 @@ class UsersController extends AppController
             $query = $this->Users;
         }
 
-        $users = $this->paginate($query,['contain'=>['Profiles', 'Skills']]);
-        //$users = $this->paginate($this->Users);
+        //$users = $this->paginate($query,['contain'=>['Users', 'Users']]);
+        $users = $this->paginate($query);
         $this->set(compact('users', 'userCount'));
     }
 
