@@ -3,6 +3,7 @@
  * @var \App\View\AppView $this
  * @var \Cake\Datasource\EntityInterface $producto
  * @var \App\Model\Entity\Producto $producto
+ * @var \App\Model\Entity\Proveedor $proveedor
  */
 ?>
 <div class="row">

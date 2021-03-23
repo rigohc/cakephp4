@@ -40,6 +40,7 @@ class ProductoTable extends Table
         $this->setTable('producto');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+    
     }
 
     /**
@@ -58,55 +59,55 @@ class ProductoTable extends Table
             ->scalar('nombre')
             ->maxLength('nombre', 250)
             ->requirePresence('nombre', 'create')
-            ->notEmptyString('nombre');
+            ->notEmptyString('nombre','Llene este campo');
 
         $validator
             ->scalar('precio')
             ->maxLength('precio', 10)
             ->requirePresence('precio', 'create')
-            ->notEmptyString('precio');
+            ->notEmptyString('precio','Llene este campo');
 
         $validator
             ->scalar('tipo_bicicleta')
             ->maxLength('tipo_bicicleta', 250)
             ->requirePresence('tipo_bicicleta', 'create')
-            ->notEmptyString('tipo_bicicleta');
+            ->notEmptyString('tipo_bicicleta','Llene este campo');
 
         $validator
             ->scalar('marca')
             ->maxLength('marca', 250)
             ->requirePresence('marca', 'create')
-            ->notEmptyString('marca');
+            ->notEmptyString('marca','Llene este campo');
 
         $validator
             ->scalar('rodada')
             ->maxLength('rodada', 20)
             ->requirePresence('rodada', 'create')
-            ->notEmptyString('rodada');
+            ->notEmptyString('rodada','Llene este campo');
 
         $validator
             ->scalar('material_cuadro')
             ->maxLength('material_cuadro', 250)
             ->requirePresence('material_cuadro', 'create')
-            ->notEmptyString('material_cuadro');
+            ->notEmptyString('material_cuadro','Llene este campo');
 
         $validator
             ->scalar('tipo_suspencion')
             ->maxLength('tipo_suspencion', 250)
             ->requirePresence('tipo_suspencion', 'create')
-            ->notEmptyString('tipo_suspencion');
+            ->notEmptyString('tipo_suspencion','Llene este campo');
 
         $validator
             ->scalar('tipo_frenos')
             ->maxLength('tipo_frenos', 250)
             ->requirePresence('tipo_frenos', 'create')
-            ->notEmptyString('tipo_frenos');
+            ->notEmptyString('tipo_frenos','Llene este campo');
 
         $validator
             ->scalar('transmision')
             ->maxLength('transmision', 250)
             ->requirePresence('transmision', 'create')
-            ->notEmptyString('transmision');
+            ->notEmptyString('transmision','Llene este campo');
 
             $validator
             ->allowEmptyFile('image')
@@ -124,7 +125,7 @@ class ProductoTable extends Table
         $validator
             ->integer('proveedor')
             ->requirePresence('proveedor', 'create')
-            ->notEmptyString('proveedor');
+            ->notEmptyString('proveedor','Llene este campo');
 
         return $validator;
     }
