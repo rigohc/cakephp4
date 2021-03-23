@@ -10,7 +10,7 @@ $a_name = $this->request->getParam('action');
   <!-- Brand -->
   <a class="navbar-brand" href=<?= $this->Url->build(['controller' => 'admin/users', 'action' => 'login']); ?>>Iniciar Sesión</a>
 
-  <a class="navbar-brand" href=<?= $this->Url->build(['controller' => 'blogs', 'action' => '']); ?>>Productos</a>
+  <a class="navbar-brand" href=<?= $this->Url->build(['controller' => 'admin/producto', 'action' => 'cliente']); ?>>Productos</a>
 
   <a class="navbar-brand" href=<?= $this->Url->build(['controller' => 'blogs', 'action' => 'about']); ?>>¿Quienes somos?</a>
 

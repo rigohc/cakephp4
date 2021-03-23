@@ -54,7 +54,7 @@ class UsersTable extends Table
             ->integer('id')
             ->allowEmptyString('id', null, 'create','image');
 
-        $validator
+            $validator
             ->scalar('username')
             ->maxLength('username', 20)
             ->requirePresence('username', 'create')
@@ -83,8 +83,13 @@ class UsersTable extends Table
             ->scalar('password')
             ->maxLength('password', 20,'Este campo debe tener una longitud maxima de 20 caracteres')
             ->minLength('password',8,'Este campo debe tener una longitud minima de 8 caracteres')
-            ->requirePresence('password', 'create')
-            ->notEmptyString('password');
+            ->requirePresence('password','create')
+            ->notEmptyString('password', 'Llene este campo');
+
+         $validator
+            ->scalar('tipo')
+            ->maxLength('tipo', 20)
+            ->requirePresence('tipo', 'create');   
 
         $validator
             ->allowEmptyFile('image')

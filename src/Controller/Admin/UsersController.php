@@ -25,9 +25,14 @@ class UsersController extends AppController
                 {
                     $this->Flash->error("Este usuario no cuenta con permisos de acceso !");
                     return $this->redirect(['controller' => 'Users', 'action' => 'logout']);
+                }else{
+                    if($user['tipo'] == 'administrador'){
+                        return $this->redirect(['controller'=>'Users','action'=>'inicio']);
+                    }else if($user['tipo'] == 'cliente'){
+                        return $this->redirect(['controller'=>'Users','action'=>'cliente']);
+                    }
                 }
-
-                return $this->redirect(['controller'=>'Users','action'=>'inicio']);
+               
             }else {
                 $this->Flash->error("Usuario o contrasñea incorrecto(s) !");
             }
@@ -36,7 +41,7 @@ class UsersController extends AppController
 
     public function logout(){
         $this->Auth->logout();
-        return $this->redirect(['controller'=>'../../bikestore','action'=>'']);
+        return $this->redirect(['controller'=>'','action'=>'../../bikestore']);
     }
     /**
      * Index method
@@ -221,6 +226,41 @@ class UsersController extends AppController
     }
 
     public function inicio(){
+
+    }
+
+    public function registro(){
+        $user = $this->Users->newEmptyEntity();
+        if ($this->request->is('post')) {
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+            
+            if(!$user->getErrors){
+                $image = $this->request->getData('image_file');
+
+                $name  = $image->getClientFilename();
+
+                if( !is_dir(WWW_ROOT.'img'.DS.'user-img') )
+                mkdir(WWW_ROOT.'img'.DS.'user-img',0775);
+                
+                $targetPath = WWW_ROOT.'img'.DS.'user-img'.DS.$name;
+
+                if($name)
+                $image->moveTo($targetPath);
+                
+                $user->image = 'user-img/'.$name;
+            }
+        
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('El usuario ha sido guardado.'));
+
+                return $this->redirect(['action' => 'logout']);
+            }
+            $this->Flash->error(__('El usuario no pudo ser guardado. Por favor, intente nuevamente.'));
+        }
+        $this->set(compact('user'));
+    }
+
+    public function cliente(){
 
     }
 

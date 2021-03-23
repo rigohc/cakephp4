@@ -24,6 +24,13 @@ class ProductoController extends AppController
         $this->set(compact('producto'));
     }
 
+    public function cliente()
+    {
+        $producto = $this->paginate($this->Producto);
+
+        $this->set(compact('producto'));
+    }
+
     /**
      * View method
      *
@@ -32,6 +39,15 @@ class ProductoController extends AppController
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
+    {
+        $producto = $this->Producto->get($id, [
+            'contain' => [],
+        ]);
+
+        $this->set(compact('producto'));
+    }
+
+    public function viewcliente($id = null)
     {
         $producto = $this->Producto->get($id, [
             'contain' => [],

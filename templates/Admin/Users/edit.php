@@ -8,10 +8,11 @@
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Opciones') ?></h4>
+            <?= $this->Html->link(__('Inicio'), ['controller' => 'users', 'action' => 'inicio'], ['class' => 'side-nav-item']) ?>
             <?= $this->Form->postLink(
-                __('Eliminar Usuarios'),
+                __('Eliminar Usuario'),
                 ['action' => 'delete', $user->id],
-                ['confirm' => __('Esta seguro de eliminar a # {0}?', $user->username), 'class' => 'side-nav-item']
+                ['confirm' => __('Esta seguro de eliminar a {0}?', $user->username), 'class' => 'side-nav-item']
             ) ?>
             <?= $this->Html->link(__('Lista de Usuarios'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>

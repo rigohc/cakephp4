@@ -8,6 +8,7 @@
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Opciones') ?></h4>
+            <?= $this->Html->link(__('Inicio'), ['controller' => 'users', 'action' => 'inicio'], ['class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('Editar Proveedor'), ['action' => 'edit', $proveedor->id], ['class' => 'side-nav-item']) ?>
             <?= $this->Form->postLink(__('Eliminar Proveedor'), ['action' => 'delete', $proveedor->id], ['confirm' => __('Are you sure you want to delete # {0}?', $proveedor->id), 'class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('Lista de Proveedores'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>

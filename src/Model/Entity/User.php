@@ -31,6 +31,7 @@ class User extends Entity
         'email' => true,
         'password' => true,
         'phone' => true,
+        'tipo' => true,
     ];
 
     /**
