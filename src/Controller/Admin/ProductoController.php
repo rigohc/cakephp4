@@ -31,6 +31,13 @@ class ProductoController extends AppController
         $this->set(compact('producto'));
     }
 
+    public function publico()
+    {
+        $producto = $this->paginate($this->Producto);
+
+        $this->set(compact('producto'));
+    }
+
     /**
      * View method
      *
@@ -48,6 +55,15 @@ class ProductoController extends AppController
     }
 
     public function viewcliente($id = null)
+    {
+        $producto = $this->Producto->get($id, [
+            'contain' => [],
+        ]);
+
+        $this->set(compact('producto'));
+    }
+
+    public function viewpublico($id = null)
     {
         $producto = $this->Producto->get($id, [
             'contain' => [],

@@ -8,11 +8,7 @@
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Opciones') ?></h4>
-            <?= $this->Html->link(__('Inicio'), ['controller' => 'users', 'action' => 'inicio'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('Editar Producto'), ['action' => 'edit', $producto->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Eliminar Producto'), ['action' => 'delete', $producto->id], ['confirm' => __('Está seguro de querer eliminar este producto: {0}?', $producto->nombre), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('Lista de Productos'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('Nuevo Producto'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('Ver mas productos'), ['controller' => 'producto', 'action' => 'publico'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
@@ -57,16 +53,9 @@
                 </tr>
                 <tr>
                     <th><?= __('Image') ?></th>
-                    <td><?= h($producto->image) ?></td>
+                    <td><?= @$this->Html->image($producto->image, ['style' => 'max-width:250px;height:200px;']) ?></td>
                 </tr>
-                <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= $this->Number->format($producto->id) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Proveedor') ?></th>
-                    <td><?= $this->Number->format($producto->proveedor) ?></td>
-                </tr>
+              
             </table>
         </div>
     </div>

@@ -5,6 +5,10 @@ namespace App\Controller\Admin;
 use \SplFileObject;
 use App\Controller\Admin\AppController;
 use Cake\Datasource\ConnectionManager;
+use Cake\Mailer\Email;
+use Cake\Utility\Security;
+use Cake\ORM\TableRegistry;
+use Cake\Auth\DefaulPasswordHasher;
 /**
  * Users Controller
  *
@@ -263,5 +267,40 @@ class UsersController extends AppController
     public function cliente(){
 
     }
+
+    // public function forgotpassword()
+    // {
+    //     if($this->request->is('post')) {
+    //         $myemail = $this->request->get('email');
+    //         $mytoken = Security::hash(Security::randomBytes(25));
+
+    //         $userTable = TableRegistry::get('Users');
+    //         $user=$userTable->find('all')->where(['email'=>$myemail])->first();
+    //         $user->password = '';
+    //         $user->token = $mytoken;
+    //         if($userTable->save($user))
+    //         {
+    //             $this->Flash->success('El enlace para restaurar tu contraseña a sido envido a tu correo ('.$myemail.'), por favor revisa tu bandeja de entrada.');
+
+    //         }
+    //     } 
+    // }
+
+    // public function resetpassword($token)
+    // {
+    //     if($this->request->is('post')){
+    //         $hasher = new DefaultPasswordHasher();
+    //         $mypass = $hasher->hash($this->request->getData('password'));
+
+    //         $userTable = TableRegistry::get('Users');
+    //         $user = $userTable->find('all')->where(['token'=>$token])->first();
+    //         $user->password = $mypass;
+    //         if($userTable->save($user))
+    //         {
+    //             return $this->$this->redirect(['action'=>'login']);
+    //         }
+    //     }
+
+    // }
 
 }
