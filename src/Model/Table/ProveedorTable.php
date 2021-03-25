@@ -83,7 +83,7 @@ class ProveedorTable extends Table
             ->requirePresence('telefono', 'create')
             ->maxLength('telefono', 10,'Ingrese un numero telefónico valido.')
             ->minLength('telefono', 10,'Ingrese un numero telefónico valido.')
-            ->naturalNumber('telefono','Este campo solo admite numeros')
+            ->numeric('telefono','Este campo solo admite numeros')
             ->notEmptyString('telefono','Llene este campo');
 
         $validator
@@ -104,6 +104,7 @@ class ProveedorTable extends Table
             ->scalar('sitio_web')
             ->maxLength('sitio_web', 150)
             ->requirePresence('sitio_web', 'create')
+            ->url('sitio_web','Ingrese un sitio web valido')
             ->notEmptyString('sitio_web','Llene este campo');
 
         return $validator;

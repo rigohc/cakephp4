@@ -6,6 +6,7 @@ namespace App\Model\Table;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
+use Cake\Validation\Validation;
 use Cake\Validation\Validator;
 
 /**
@@ -65,7 +66,7 @@ class UsersTable extends Table
             ->maxLength('phone', 10,'Ingrese un numero telefónico valido.')
             ->minLength('phone', 10,'Ingrese un numero telefónico valido.')
             ->requirePresence('phone', 'create')
-            ->naturalNumber('phone','Este campo solo admite numeros')
+            ->numeric('phone','Este campo solo admite numeros')
             ->notEmptyString('phone','Llene este campo');
 
         $validator
@@ -81,10 +82,12 @@ class UsersTable extends Table
 
         $validator
             ->scalar('password')
-            ->maxLength('password', 20,'Este campo debe tener una longitud maxima de 20 caracteres')
             ->minLength('password',8,'Este campo debe tener una longitud minima de 8 caracteres')
             ->requirePresence('password','create')
-            ->notEmptyString('password', 'Llene este campo');
+            ->notEmptyString('password', 'Llene este campo')
+            ->notAlphaNumeric('password','Incluya caracteres especiales Ej: #$%&')
+            ->alphaNumeric('password','Incluya numero y letras');
+
 
          $validator
             ->scalar('tipo')
@@ -124,6 +127,7 @@ class UsersTable extends Table
             'message'=>'Este correo electrónico ya se encuentra en uso'
         ]
         );
+
 
         return $rules;
     }
