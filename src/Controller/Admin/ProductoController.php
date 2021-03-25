@@ -2,8 +2,10 @@
 declare(strict_types=1);
 
 namespace App\Controller\Admin;
+
 use \SplFileObject;
 use App\Controller\Admin\AppController;
+use App\Controller\Admin\ProveedorController;
 use Cake\Datasource\ConnectionManager;
 /**
  * Producto Controller
@@ -80,9 +82,13 @@ class ProductoController extends AppController
     public function add()
     {
         $producto = $this->Producto->newEmptyEntity();
+
+       
+       
         if ($this->request->is('post')) {
+
             $producto = $this->Producto->patchEntity($producto, $this->request->getData());
-            
+
             if(!$producto->getErrors){
                 $image = $this->request->getData('image_file');
 
@@ -106,6 +112,7 @@ class ProductoController extends AppController
             }
             $this->Flash->error(__('El producto no pudo ser guardado. Por favor, intente nuevamente.'));
         }
+
         $this->set(compact('producto'));
     }
 
@@ -184,5 +191,18 @@ class ProductoController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
- 
+    public function findProvs() {
+        $allProductos = $this->Producto->find('list');
+        $pending = $this->Producto->find('list', array(
+            'conditions' => array('Producto.status' => 'pending')
+        ));
+        $allProvs = $this->Producto->Proveedor->find('list');
+        $allProdProvs = $this->Producto->find('list', array(
+            'fields' => array('Proveedor.id', 'Proveedor.razon_social'),
+            'conditions' => array('Producto.status !=' => 'pending'),
+            'recursive' => 0
+        ));
+        return  $this->set(compact($allProdProvs));
+    }
+
 }

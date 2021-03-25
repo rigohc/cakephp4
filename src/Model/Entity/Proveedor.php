@@ -34,5 +34,6 @@ class Proveedor extends Entity
         'codigo_postal' => true,
         'direccion' => true,
         'sitio_web' => true,
+        'producto' => true,
     ];
 }

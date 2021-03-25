@@ -21,7 +21,7 @@ use Cake\ORM\Entity;
  * @property string $image
  * @property int $proveedor
  */
-class Producto extends Entity
+class Producto extends Entity 
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -45,4 +45,5 @@ class Producto extends Entity
         'image' => true,
         'proveedor' => true,
     ];
+
 }

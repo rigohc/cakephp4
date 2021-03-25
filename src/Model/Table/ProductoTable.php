@@ -40,6 +40,7 @@ class ProductoTable extends Table
         $this->setTable('producto');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+        
     
     }
 
@@ -109,7 +110,7 @@ class ProductoTable extends Table
             ->requirePresence('transmision', 'create')
             ->notEmptyString('transmision','Llene este campo');
 
-            $validator
+         $validator
             ->allowEmptyFile('image')
             ->add( 'image', [
             'mimeType' => [
@@ -120,7 +121,7 @@ class ProductoTable extends Table
                 'rule' => [ 'fileSize', '<=', '1MB' ],
                 'message' => 'El tamaño de la imagen debe ser menor a 1MB.',
             ],
-        ] );
+            ] );
 
         $validator
             ->integer('proveedor')
