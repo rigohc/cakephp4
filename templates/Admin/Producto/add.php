@@ -31,6 +31,11 @@
                     echo $this->Form->control('transmision');
                     echo $this->Form->control('image_file',['type'=>'file']);
                     echo $this->Form->control('proveedor');
+                    // echo $this->Form->control('proveedor',
+                    //                         array('type'=>'select',
+                    //                         'options'=>['1'=>'Alubike','2'=>'Giant-Bicycles','3'=>'Scott','4'=>'Trek'],
+                    //                         'empy' => false
+                    //                     ));
                 ?>
             
             </fieldset>

@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Proveedor Model
  *
+ * @property \App\Model\Table\ProductoTable&\Cake\ORM\Association\HasMany $Producto
+ * 
  * @method \App\Model\Entity\Proveedor newEmptyEntity()
  * @method \App\Model\Entity\Proveedor newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Proveedor[] newEntities(array $data, array $options = [])
@@ -38,8 +40,12 @@ class ProveedorTable extends Table
         parent::initialize($config);
 
         $this->setTable('proveedor');
-        $this->setDisplayField('id');
+        $this->setDisplayField('razon_social');
         $this->setPrimaryKey('id');
+
+        $this->hasMany('Producto', [
+            'foreignKey' => 'proveedor',
+        ]);
     }
 
     /**
